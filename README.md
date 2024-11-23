@@ -16,30 +16,7 @@ This portfolio features a clean, interactive design with three main sections:
 - **UI Components**: [Aceternity UI](https://ui.aceternity.com/)
 - **Styling**: Tailwind CSS
 
-## Getting Started
-
-1. Clone the repository:
-```bash
-git clone https://github.com/derekchengg/website.git
-```
-
-2. Install dependencies:
-```bash
-npm install
-# or
-yarn install
-```
-
-3. Run the development server:
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-## Useful Resources
+## Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Aceternity UI Components](https://ui.aceternity.com/components)
