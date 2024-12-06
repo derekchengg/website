@@ -2,6 +2,11 @@
 
 A modern personal portfolio website showcasing my projects and experience. Built with [Next.js](https://nextjs.org/), React, TypeScript, and [Aceternity UI](https://ui.aceternity.com/) components.
 
+## Link
+
+Hosted on Vercel.
+https://website-m2m5-derekchenggs-projects.vercel.app/
+
 ## Overview
 
 This portfolio features a clean, interactive design with three main sections:
@@ -15,32 +20,11 @@ This portfolio features a clean, interactive design with three main sections:
 - **Language**: TypeScript
 - **UI Components**: [Aceternity UI](https://ui.aceternity.com/)
 - **Styling**: Tailwind CSS
+- **Domain**: [Vercel](vercel.com)
 
-## Getting Started
-
-1. Clone the repository:
-```bash
-git clone https://github.com/derekchengg/website.git
-```
-
-2. Install dependencies:
-```bash
-npm install
-# or
-yarn install
-```
-
-3. Run the development server:
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-## Useful Resources
+## Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Aceternity UI Components](https://ui.aceternity.com/components)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Vercel Hosting](vercel.com)
