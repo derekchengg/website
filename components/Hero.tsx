@@ -9,7 +9,6 @@ import { projects } from "@/components/data/projectData";
 import { words } from "@/components/data/typewriterData";
 import { BackgroundLines } from "./ui/background-lines";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
-import { Compare } from "./ui/compare";
 
 const Hero = () => {
   return (
@@ -44,14 +43,13 @@ const Hero = () => {
       {/* Canvas 2 */}
       <section id="aboutme-section" className="snap-start min-h-screen w-full flex items-center justify-center">
         <div className="flex flex-col items-center justify-center px-4 space-y-6">
-          <div className="w-48 h-48 rounded-full overflow-hidden">
-            <Compare
-              firstImage="./images/icon.jpg"
-              secondImage="./images/bitmoji.png"
-              firstImageClassName="w-full h-full object-cover"
-              secondImageClassname="object-cover object-left-top"
-              className="w-full h-full object-cover"
-              slideMode="hover"
+          <div className="w-[200px] h-[200px] rounded-full overflow-hidden block mx-auto">
+            <Image
+              src="/images/icon.jpg"
+              alt="Derek Cheng"
+              width={400}
+              height={400}
+              className="aspect-square w-full h-full object-cover"
             />
           </div>
           <div className="py-5 text-center max-w-2xl">

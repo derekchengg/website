@@ -28,7 +28,7 @@ export const projects = [
     },
     {
       key: "4",
-      title: "Personal Website",
+      title: "[OLD] Personal Website",
       linkTitle: "derekchengg.github.io",
       href: "https://github.com/derekchengg/derekchengg.github.io",
       image: "./images/website.png",
@@ -43,6 +43,15 @@ export const projects = [
       image: "./images/youtubetranscriptsum.png",
       description:
         "A web app using AI to summarize YouTube transcripts, track word counts, and more.",
+    },
+    {
+      key: "6",
+      title: "[NEW] Personal Website",
+      linkTitle: "derekchengg/website",
+      href: "https://github.com/derekchengg/website",
+      image: "./images/WebsiteNew.png",
+      description:
+        "A modern personal portfolio website. Built with Next.js, React, TypeScript, and Aceternity UI components.",
     },
   ];
   
