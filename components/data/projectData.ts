@@ -33,7 +33,7 @@ export const projects = [
       href: "https://github.com/derekchengg/derekchengg.github.io",
       image: "./images/website.png",
       description:
-        "Virtual Hub where I showcase my projects, skills, experiences, and interests.",
+        "Old personal porfolio website. Built with HTML, CSS, and JavaScript.",
     },
     {
       key: "5",
