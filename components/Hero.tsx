@@ -9,30 +9,39 @@ import { projects } from "@/components/data/projectData";
 import { words } from "@/components/data/typewriterData";
 import { BackgroundLines } from "./ui/background-lines";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
+import { useScroll } from "@/hooks/use-scroll";
 
 const Hero = () => {
+  const { scrollToSection } = useScroll();
   return (
     <main className="h-screen w-screen overflow-y-scroll overflow-x-hidden snap-y snap-mandatory">
       {/* Canvas 1 */}
       <section id="landing-section" className="snap-start min-h-screen w-full flex items-center justify-center relative">
-        <BackgroundLines className="absolute inset-0 w-full h-full">
-          <div className="flex flex-col items-center space-y-4">
-            <div className="flex flex-col items-center justify-center min-h-screen">
-              <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base  ">
-                Computing Science Student @ Simon Fraser University.
-              </p>
-              <TypewriterEffectSmooth words={words} />
-              <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-                <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
-                  <a href="#aboutme-section"> About Me </a>
-                </button>
-                <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm">
-                  Portfolio
-                </button>
-              </div>
+        <BackgroundLines className="absolute inset-0 w-full h-full -z-10">
+          <div />
+        </BackgroundLines>
+        <div className="flex flex-col items-center space-y-4">
+          <div className="flex flex-col items-center justify-center min-h-screen">
+            <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base  ">
+              Computing Science Student @ Simon Fraser University.
+            </p>
+            <TypewriterEffectSmooth words={words} />
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
+              <button
+                className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm"
+                onClick={() => scrollToSection('aboutme-section')}
+              >
+                About Me
+              </button>
+              <button
+                className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm"
+                onClick={() => scrollToSection('portfolio-section')}
+              >
+                Portfolio
+              </button>
             </div>
           </div>
-        </BackgroundLines>
+        </div>
         <div className="absolute top-4 right-4 z-50">
           <div className="fixed">
             <ModeToggle />
