@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavbarNew } from "@/components/navbar";
-import { ModeToggle } from "@/components/ui/ModeToggle";
+import { BottomDock } from "@/components/bottom-navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,13 +44,11 @@ export default function RootLayout({
             <div className="fixed top-0 left-0 right-0 z-50">
               <NavbarNew />
             </div>
-
-            <div className="fixed bottom-2 right-1 z-50">
-              <ModeToggle />
-            </div>
           </div>
-
           {children}
+          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+            <BottomDock />
+          </div>
         </ThemeProvider>
       </body>
     </html>

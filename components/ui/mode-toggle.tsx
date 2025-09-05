@@ -2,8 +2,10 @@
 import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
-export function ModeToggle() {
+export function ModeToggle({ className }: { className?: string }) {
   const { setTheme, theme, systemTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
@@ -12,7 +14,7 @@ export function ModeToggle() {
   }, []);
 
   if (!mounted) {
-    return null; 
+    return null;
   }
 
   const currentTheme = theme === 'system' ? systemTheme : theme;
@@ -20,14 +22,18 @@ export function ModeToggle() {
   return (
     <button
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+      className={cn(
+        buttonVariants({ variant: "ghost", size: "icon" }),
+        "size-12 rounded-full",
+        className
+      )}
       type="button"
       aria-label="Toggle theme"
     >
       {currentTheme === "dark" ? (
-        <Sun className="h-5 w-5 text-yellow-500" />
+        <Sun className="h-4 w-4" />
       ) : (
-        <Moon className="h-5 w-5 text-gray-800 dark:text-gray-200" />
+        <Moon className="h-4 w-4" />
       )}
       <span className="sr-only">Toggle theme</span>
     </button>
