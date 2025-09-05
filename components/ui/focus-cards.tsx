@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -28,7 +27,9 @@ const Card = React.memo(
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-20 w-20 m-1 transition-all duration-300 ease-out group",
+        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden transition-all duration-300 ease-out group",
+        "h-8 w-8 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20",
+        "m-0.5 sm:m-1 md:m-1.5", 
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
@@ -40,21 +41,23 @@ const Card = React.memo(
       />
       <div
         className={cn(
-          "absolute inset-0 bg-black/50 flex items-end py-1 px-1 transition-opacity duration-300",
+          "absolute inset-0 bg-black/50 flex items-end py-0.5 px-0.5 sm:py-1 sm:px-1 transition-opacity duration-300",
           hovered === index ? "opacity-100" : "opacity-0"
         )}
       >
-        <div className="text-lg md:text-xs text-center font-small bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
+        <div className="text-xs sm:text-xs md:text-sm lg:text-base text-center font-small bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
           {card.title}
         </div>
       </div>
       <AnimatePresence>
         {hovered === index && (
           <motion.div
-            className="absolute top-0 left-0 w-20 h-20 bg-gray-200 dark:bg-neutral-800 rounded-full pointer-events-none"
+            className="absolute top-0 left-0 bg-gray-200 dark:bg-neutral-800 rounded-full pointer-events-none"
             style={{
-              translateX: cursorPosition.x - 40,
-              translateY: cursorPosition.y - 40,
+              width: "var(--cursor-size)",
+              height: "var(--cursor-size)",
+              translateX: cursorPosition.x - 20,
+              translateY: cursorPosition.y - 20,
             }}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.3 }}
@@ -84,7 +87,12 @@ export function FocusCards({ cards }: { cards: Card[] }) {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-2">
+    <div 
+      className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 md:gap-3"
+      style={{
+        "--cursor-size": "clamp(40px, 8vw, 80px)"
+      } as React.CSSProperties}
+    >
       {cards.map((card, index) => (
         <Card
           key={card.title}
