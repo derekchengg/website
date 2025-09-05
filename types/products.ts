@@ -3,5 +3,4 @@ export interface Product {
   title: string;
   description: string;
   stack: string[];
-  slug?: string; 
 }
