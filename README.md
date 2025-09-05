@@ -5,7 +5,7 @@ A modern personal portfolio website showcasing my projects and experience. Built
 ## Link
 
 Hosted on Vercel.
-https://derekcheng-derekchenggs-projects.vercel.app//
+https://derekcheng.vercel.app/
 
 ## Overview
 
