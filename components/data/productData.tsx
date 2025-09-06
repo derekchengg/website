@@ -15,7 +15,7 @@ export const products: Product[] = [
   },
   {
     href: "https://github.com/derekchengg/SIAT-Issues-App",
-    title: "SIAT Student Issues App Prototype",
+    title: "SIAT Student Issues",
     description: "SFU-branded issue tracking system with dashboard, voting, filtering, and mobile-responsive design using vanilla HTML/CSS/JS.",
     stack: ["HTML", "CSS", "JavaScript"],
   },
@@ -42,5 +42,23 @@ export const products: Product[] = [
     title: "Personal Discord Bot",
     description: "A Discord bot with commands for events, customization, message logging, and info retrieval.",
     stack: ["Discord.js", "Node.js"],
+  },
+  {
+    href: "https://github.com/derekchengg/TheraHub",
+    title: "TheraHub",
+    description: "A Mental health platform for students to find resources, book appointments, and access self-help tools.",
+    stack: ["Figma"],
+  },
+  {
+    href: "https://www.figma.com/design/AwUdv57gaFfSV9XsNWa2hb/Untitled?node-id=0-1&t=fne4UV2cNg5JxQdQ-1",
+    title: "Jitjots Prototype",
+    description: "A Non profit organization to connect students with science activites and resources.",
+    stack: ["Figma"],
+  },
+  {
+    href: "https://www.figma.com/design/91C7mADXqcoZdUAZkTJS1C/Project-4?node-id=0-1&t=oWO9RFunBEh23xqx-1",
+    title: "SIAT Student Issues Prototype",
+    description: "SFU-branded issue tracking system with dashboard, voting, filtering, and mobile-responsive design using vanilla HTML/CSS/JS.",
+    stack: ["Figma"],
   },
 ];
