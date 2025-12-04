@@ -34,21 +34,18 @@ export const projectsData = [
       details with progressive disclosure, (3) order confirmation with transparent 
       pricing.
       
-      For the cards, I implemented large typography for pricing and visual weight 
-      for key benefits—this makes sense because users need quick decisions. I 
-      built custom form validation for real-time feedback and hand-coded the 
-      responsive hamburger menu to avoid library bloat.
+      For the cards, I followd the standard typography for pricing and visual weight.
+      This helps users make quick decisions. 
     `,
 
     "process-image": "/images/projects/peaked-bouldering/process.png",
 
     solution: `
       The results show that this approach directly addressed competitor pain 
-      points. The side-by-side card layout eliminated table confusion—users 
-      could instantly compare options. The three-step checkout reduced cognitive 
-      load (3-4 fields max per step). Real-time validation prevented error 
-      frustration. The responsive design maintained full functionality across 
-      several screen sizes.
+      points. The side-by-side card layout eliminated table confusion for users 
+      who could instantly compare options. The three-step checkout helped with the flow to 
+      enhance user experience and with a responsive design, it maintained usability across 
+      devices.
     `,
 
     "solution-image": "/images/projects/peaked-bouldering/solution.png",
@@ -62,8 +59,8 @@ export const projectsData = [
 
       `
         Balancing aesthetics with functionality proved challenging. The main 
-        lesson I learned is that great design serves the user journey first—
-        beauty doesn't matter if users can't figure out how to use it.
+        lesson I learned is that great design is more important than flashy visuals. Users tend
+        to prioritize clarity and ease of use over aesthetic elements.
       `,
 
       `
