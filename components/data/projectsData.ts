@@ -1,6 +1,3 @@
-import { link } from "fs";
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
-
 export const projectsData = [
   {
     id: "peaked-bouldering-website",
