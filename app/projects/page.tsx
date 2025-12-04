@@ -12,7 +12,7 @@ export default function ProjectsPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Projects</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Click on any project to see my process, decisions, and what I learned
+            Welcome to my projects portfolio!
           </p>
         </div>
 
@@ -23,6 +23,11 @@ export default function ProjectsPage() {
                 <CardHeader>
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex-1">
+                      <img
+                        src="/images/project1/hero.png"
+                        alt="Design & Development Process"
+                        className="w-full rounded-lg shadow-md py-8"
+                      />
                       <CardTitle className="text-xl line-clamp-2">{project.title}</CardTitle>
                       <CardDescription className="mt-2">{project.role}</CardDescription>
                     </div>

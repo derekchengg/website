@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, ExternalLink } from "lucide-react"
 
 interface Project {
   id: string
@@ -11,11 +11,16 @@ interface Project {
   timeline: string
   summary: string
   techStack: string[]
+  link: string
   problem: string
   research: string
   process: string
   solution: string
   reflection: string[]
+  images?: {
+    process?: string
+    solution?: string
+  }
 }
 
 interface ProjectDetailPageClientProps {
@@ -26,20 +31,21 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
   return (
     <main className="min-h-screen w-full bg-background">
       <section className="border-b border-border">
-        <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="container mx-auto px-4 py-12 md:py-20">
           <div className="max-w-4xl mx-auto space-y-8">
             {/* Project Title and Summary */}
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance">
-                {project.title}
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
-                {project.summary}
-              </p>
+              <img
+                src="/images/project1/hero.png"
+                alt="Design & Development Process"
+                className="w-full rounded-lg shadow-md py-8"
+              />
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-balance">{project.title}</h1>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">{project.summary}</p>
             </div>
 
             {/* Context Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-border">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pt-8 border-t border-border">
               <div>
                 <p className="text-sm font-semibold text-muted-foreground mb-2">MY ROLE</p>
                 <p className="text-base font-medium">{project.role}</p>
@@ -58,6 +64,20 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
                   ))}
                 </div>
               </div>
+              <div>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">LINK</p>
+                <Button asChild variant="outline">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Visit Website
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -74,18 +94,46 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
           {/* Design & Development */}
           <Section title="Design & Development" content={project.process} />
 
-          {/* Results & Learning */}
-          <Section title="Results & Impact" content={project.solution} />
+          {/* If your image is at public/images/project1/process.png */}
+          <img
+            src="/images/project1/process1.png"
+            alt="Design & Development Process"
+            className="w-full rounded-lg shadow-md"
+          />
+          <img
+            src="/images/project1/process2.png"
+            alt="Design & Development Process"
+            className="w-full rounded-lg shadow-md"
+          />
 
-          {/* Key Reflections */}
+          {/* Results & Learning */}
+          <Section title="Results & Learning" content={project.solution} />
+
+          {/* If your image is at public/images/project1/solution.png */}
+          <img
+            src="/images/project1/solution1.png"
+            alt="Final Solution"
+            className="w-full rounded-lg shadow-md"
+          />
+          <img
+            src="/images/project1/solution2.png"
+            alt="Final Solution"
+            className="w-full rounded-lg shadow-md"
+          />
+          <img
+            src="/images/project1/solution3.png"
+            alt="Final Solution"
+            className="w-full rounded-lg shadow-md"
+          />
+
           {project.reflection && project.reflection.length > 0 && (
             <div className="pt-8 border-t border-border">
               <h2 className="text-3xl md:text-4xl font-bold mb-12">Key Reflections</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {project.reflection.map((item, index) => (
+                {project.reflection.map((takeaway, index) => (
                   <div key={index} className="space-y-2">
                     <p className="text-sm font-semibold text-primary">0{index + 1}</p>
-                    <p className="text-base leading-relaxed text-foreground">{item}</p>
+                    <p className="text-base leading-relaxed text-foreground">{takeaway}</p>
                   </div>
                 ))}
               </div>
@@ -93,10 +141,10 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
           )}
 
           <div className="pt-12 border-t border-border">
-            <Link href="/">
+            <Link href="/projects">
               <Button size="lg" variant="outline" className="gap-2 bg-transparent">
                 <ArrowLeft className="w-4 h-4" />
-                Back to Home
+                View All Projects
               </Button>
             </Link>
           </div>

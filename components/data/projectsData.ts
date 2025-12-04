@@ -1,3 +1,6 @@
+import { link } from "fs";
+import { imageConfigDefault } from "next/dist/shared/lib/image-config";
+
 export const projectsData = [
   {
     id: "peaked-bouldering-website",
@@ -8,16 +11,67 @@ export const projectsData = [
       "A responsive bouldering gym website with a complete membership purchase flow, built from scratch using vanilla HTML, CSS, and JavaScript.",
     techStack: ["HTML5", "CSS3", "JavaScript", "Git", "Figma"],
 
-    problem: `Many bouldering gym websites have confusing navigation and unclear pricing structures. Users struggle to compare membership options and often abandon purchases mid-checkout.`,
+    link: "https://github.com/derekchengg/PEAKED-Bouldering",
 
-    research: `I analyzed competitor sites (Hive Climbing, Progression Bouldering, Approach Climbing) to identify common UX patterns. `,
+    problem: `
+      The issue with most bouldering gym websites is that they have confusing 
+      navigation and unclear pricing structures. Users struggle to compare 
+      membership options and often abandon purchases mid-checkout.
+    `,
 
-    process: `x`,
+    research: `
+      So I analyzed competitor sites (Hive Climbing, Progression Bouldering, 
+      Approach Climbing). Key findings: most sites buried pricing 2-3 clicks 
+      deep, used dense tables requiring scrolling, and had lengthy checkout 
+      flows. These friction points informed my focus on visual comparison and 
+      streamlined purchasing.
+    `,
 
-    solution: `x`,
+    process: `
+      I wireframed a simplified user journey in Figma, prioritizing immediate 
+      pricing visibility. The reason I designed a three-step flow is to reduce 
+      cognitive load: (1) membership selection with side-by-side cards, (2) user 
+      details with progressive disclosure, (3) order confirmation with transparent 
+      pricing.
+      
+      For the cards, I implemented large typography for pricing and visual weight 
+      for key benefits—this makes sense because users need quick decisions. I 
+      built custom form validation for real-time feedback and hand-coded the 
+      responsive hamburger menu to avoid library bloat.
+    `,
+
+    "process-image": "/images/projects/peaked-bouldering/process.png",
+
+    solution: `
+      The results show that this approach directly addressed competitor pain 
+      points. The side-by-side card layout eliminated table confusion—users 
+      could instantly compare options. The three-step checkout reduced cognitive 
+      load (3-4 fields max per step). Real-time validation prevented error 
+      frustration. The responsive design maintained full functionality across 
+      several screen sizes.
+    `,
+
+    "solution-image": "/images/projects/peaked-bouldering/solution.png",
 
     reflection: [
-      `x`
+      `
+        Building with vanilla JavaScript taught me DOM manipulation fundamentals. 
+        The constraint forced creative problem-solving. However, the trade-off 
+        is that vanilla JS requires more code than frameworks for complex features.
+      `,
+
+      `
+        Balancing aesthetics with functionality proved challenging. The main 
+        lesson I learned is that great design serves the user journey first—
+        beauty doesn't matter if users can't figure out how to use it.
+      `,
+
+      `
+        User testing revealed unexpected pain points that weren't apparent 
+        during design. This reinforced the importance of early feedback. Future 
+        improvements would include membership comparison tools and backend 
+        payment integration.
+      `
     ],
   },
 ]
