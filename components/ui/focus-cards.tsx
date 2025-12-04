@@ -13,24 +13,17 @@ const Card = React.memo(
   ({
     card,
     index,
-    hovered,
-    setHovered,
     cursorPosition,
   }: {
     card: Card;
     index: number;
-    hovered: number | null;
-    setHovered: React.Dispatch<React.SetStateAction<number | null>>;
     cursorPosition: { x: number; y: number };
   }) => (
     <div
-      onMouseEnter={() => setHovered(index)}
-      onMouseLeave={() => setHovered(null)}
       className={cn(
         "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden transition-all duration-300 ease-out group",
         "h-8 w-8 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20",
         "m-0.5 sm:m-1 md:m-1.5", 
-        hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
       <Image
@@ -42,7 +35,7 @@ const Card = React.memo(
       <div
         className={cn(
           "absolute inset-0 bg-black/50 flex items-end py-0.5 px-0.5 sm:py-1 sm:px-1 transition-opacity duration-300",
-          hovered === index ? "opacity-100" : "opacity-0"
+          "opacity-0"
         )}
       >
         <div className="text-xs sm:text-xs md:text-sm lg:text-base text-center font-small bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
@@ -50,7 +43,7 @@ const Card = React.memo(
         </div>
       </div>
       <AnimatePresence>
-        {hovered === index && (
+        {false && (
           <motion.div
             className="absolute top-0 left-0 bg-gray-200 dark:bg-neutral-800 rounded-full pointer-events-none"
             style={{
@@ -73,7 +66,6 @@ const Card = React.memo(
 Card.displayName = "Card";
 
 export function FocusCards({ cards }: { cards: Card[] }) {
-  const [hovered, setHovered] = useState<number | null>(null);
   const [cursorPosition, setCursorPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -98,8 +90,6 @@ export function FocusCards({ cards }: { cards: Card[] }) {
           key={card.title}
           card={card}
           index={index}
-          hovered={hovered}
-          setHovered={setHovered}
           cursorPosition={cursorPosition}
         />
       ))}
