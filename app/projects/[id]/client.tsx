@@ -32,7 +32,7 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
     <main className="min-h-screen w-full bg-background">
       {/* Hero Section */}
       <section className="border-b border-border">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="container mx-auto pt-16 pb-8 sm:px-6 md:px-8 px-4 md:py-16 lg:py-20">
           <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
             {/* Project Hero Image */}
             <img
@@ -99,7 +99,7 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
       </section>
 
       {/* Content Section */}
-      <section className="container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="container mx-auto px-4 sm:px-6 md:px-8 pb-24 pt-8 sm:py-16 md:py-20 lg:py-24">
         <div className="max-w-4xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
           
           {/* The Problem */}

@@ -13,8 +13,7 @@ const Hero = () => {
 
   return (
     <main className="min-h-screen w-full bg-background flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background pointer-events-none" />
-      <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 lg:py-0">
+      <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-16 pb-24 sm:py-12 md:py-16 lg:py-0">
         
         {/* Two-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-32 items-start">
