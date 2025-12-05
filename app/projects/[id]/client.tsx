@@ -94,7 +94,6 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
           {/* Design & Development */}
           <Section title="Design & Development" content={project.process} />
 
-          {/* If your image is at public/images/project1/process.png */}
           <img
             src="/images/project1/process1.png"
             alt="Design & Development Process"
@@ -109,7 +108,6 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
           {/* Results & Learning */}
           <Section title="Results & Learning" content={project.solution} />
 
-          {/* If your image is at public/images/project1/solution.png */}
           <img
             src="/images/project1/solution1.png"
             alt="Final Solution"
@@ -129,11 +127,10 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
           {project.reflection && project.reflection.length > 0 && (
             <div className="pt-8 border-t border-border">
               <h2 className="text-3xl md:text-4xl font-bold mb-12">Key Reflections</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6">
                 {project.reflection.map((takeaway, index) => (
                   <div key={index} className="space-y-2">
-                    <p className="text-sm font-semibold text-primary">0{index + 1}</p>
-                    <p className="text-base leading-relaxed text-foreground">{takeaway}</p>
+                    <p className="text-base leading-relaxed text-foreground">{index + 1}) {takeaway}</p>
                   </div>
                 ))}
               </div>

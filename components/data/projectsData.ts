@@ -6,7 +6,7 @@ export const projectsData = [
     timeline: "October 2025 - November 2025",
     summary:
       "A responsive bouldering gym website with a complete membership purchase flow, built from scratch using vanilla HTML, CSS, and JavaScript.",
-    techStack: ["HTML5", "CSS3", "JavaScript", "Git", "Figma"],
+    techStack: ["HTML", "CSS", "JavaScript", "Git", "Figma"],
 
     link: "https://github.com/derekchengg/PEAKED-Bouldering",
 
