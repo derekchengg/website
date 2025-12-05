@@ -15,13 +15,13 @@ const Hero = () => {
     <main className="min-h-screen w-full bg-background flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background pointer-events-none" />
       <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 lg:py-0">
-
+        
         {/* Two-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-32 items-start">
-
+          
           {/* Left Sidebar */}
           <div className="lg:sticky lg:top-24 space-y-6 sm:space-y-7 md:space-y-8 flex flex-col">
-
+            
             {/* Profile Header */}
             <div className="space-y-4 sm:space-y-5 md:space-y-6">
               {/* Profile Image */}
@@ -38,7 +38,7 @@ const Hero = () => {
                   }}
                 />
               </div>
-
+              
               <div className="space-y-1 text-center lg:text-left">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
                   <span className="text-blue-500 dark:text-blue-400">Derek</span> Cheng
@@ -56,12 +56,12 @@ const Hero = () => {
               </h2>
               <div className="text-xs sm:text-sm text-muted-foreground/80 leading-relaxed space-y-2 sm:space-y-3">
                 <p>
-                  I'm a computer science student and IT Technician at Simon Fraser University.
+                  I'm a computer science student and IT Technician at Simon Fraser University. 
                   I've recently discovered my passion for web technologies and frontend development.
                 </p>
                 <p>
-                  I typically work with HTML, CSS, JavaScript, and React, but I'm always
-                  eager to learn new tools and frameworks. Most recently, I have been
+                  I typically work with HTML, CSS, JavaScript, and React, but I'm always 
+                  eager to learn new tools and frameworks. Most recently, I have been 
                   learning more about SQL, React, and Next.js.
                 </p>
               </div>
@@ -100,7 +100,7 @@ const Hero = () => {
 
           {/* Featured Work - Right Side */}
           <div className="space-y-8 sm:space-y-10 md:space-y-12">
-
+            
             {/* Section Header */}
             <div className="space-y-2 sm:space-y-3 text-center lg:text-left">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
@@ -113,26 +113,26 @@ const Hero = () => {
 
             {/* Projects Grid */}
             <div className="grid gap-6 sm:gap-8 md:gap-10">
-
+              
               {/* Project 1 */}
-              <article className="group space-y-3 sm:space-y-4 cursor-pointer">
-                <div onClick={() => router.push('/projects/peaked-bouldering-website')} className="block">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-base sm:text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors flex-1">
-                      PEAKED Bouldering Website
-                    </h3>
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </div>
-
-                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground/80 leading-relaxed">
-                    A responsive bouldering gym website with a complete membership purchase flow…
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
-                    {/* badges… */}
-                  </div>
+              <article className="group space-y-3 sm:space-y-4 cursor-pointer" onClick={() => router.push('/projects/peaked-bouldering-website')}>
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors flex-1">
+                    PEAKED Bouldering Website
+                  </h3>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
+                <p className="text-xs sm:text-sm md:text-base text-muted-foreground/80 leading-relaxed">
+                  A responsive bouldering gym website with a complete membership purchase flow, built from scratch using vanilla HTML, CSS, and JavaScript.
+                </p>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
+                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs bg-secondary/50 rounded-md border border-border/30">HTML</span>
+                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs bg-secondary/50 rounded-md border border-border/30">CSS</span>
+                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs bg-secondary/50 rounded-md border border-border/30">JavaScript</span>
+                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs bg-secondary/50 rounded-md border border-border/30">Figma</span>
+                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs bg-secondary/50 rounded-md border border-border/30">Git</span>
                 </div>
               </article>
 
