@@ -40,13 +40,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="grid md:grid-cols-2">
-            <div className="fixed top-0 left-0 right-0 z-50">
-              <NavbarNew />
-            </div>
+          {/* NavBar */}
+          <div className="fixed top-0 left-0 right-0 z-50">
+            <NavbarNew />
           </div>
+          
+          {/* Main Content */}
           {children}
-          <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+          
+          {/* Bottom Dock */}
+          <div className="fixed bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-50">
             <BottomDock />
           </div>
         </ThemeProvider>
