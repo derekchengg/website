@@ -7,20 +7,20 @@ import { ArrowLeft, ExternalLink } from "lucide-react"
 interface Project {
   id: string
   title: string
-  role: string
-  timeline: string
+  role?: string
+  timeline?: string
   summary: string
   techStack: string[]
   link: string
+  liveLink?: string
+  heroImage?: string
+  processImages?: string[]
+  solutionImages?: string[]
   problem: string
   research: string
   process: string
   solution: string
   reflection: string[]
-  images?: {
-    process?: string
-    solution?: string
-  }
 }
 
 interface ProjectDetailPageClientProps {
@@ -28,6 +28,8 @@ interface ProjectDetailPageClientProps {
 }
 
 export default function ProjectDetailPageClient({ project }: ProjectDetailPageClientProps) {
+  const externalLink = project.liveLink ?? project.link
+
   return (
     <main className="min-h-screen w-full bg-background">
       {/* Hero Section */}
@@ -35,12 +37,14 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
         <div className="container mx-auto pt-16 pb-8 sm:px-6 md:px-8 px-4 md:py-16 lg:py-20">
           <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
             {/* Project Hero Image */}
-            <img
-              src="/images/project1/hero.png"
-              alt="Design & Development Process"
-              className="w-full rounded-lg shadow-md py-4 sm:py-6 md:py-8"
-            />
-            
+            {project.heroImage && (
+              <img
+                src={project.heroImage}
+                alt={`${project.title} — hero image`}
+                className="w-full rounded-lg shadow-md py-4 sm:py-6 md:py-8"
+              />
+            )}
+
             {/* Project Title and Summary */}
             <div className="space-y-3 sm:space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-balance leading-tight">
@@ -53,18 +57,22 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
 
             {/* Context Grid */}
             <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 pt-6 sm:pt-8 border-t border-border">
-              <div>
-                <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-1.5 sm:mb-2">
-                  MY ROLE
-                </p>
-                <p className="text-sm sm:text-base font-medium">{project.role}</p>
-              </div>
-              <div>
-                <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-1.5 sm:mb-2">
-                  TIMELINE
-                </p>
-                <p className="text-sm sm:text-base font-medium">{project.timeline}</p>
-              </div>
+              {project.role && (
+                <div>
+                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-1.5 sm:mb-2">
+                    MY ROLE
+                  </p>
+                  <p className="text-sm sm:text-base font-medium">{project.role}</p>
+                </div>
+              )}
+              {project.timeline && (
+                <div>
+                  <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-1.5 sm:mb-2">
+                    TIMELINE
+                  </p>
+                  <p className="text-sm sm:text-base font-medium">{project.timeline}</p>
+                </div>
+              )}
               <div>
                 <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-1.5 sm:mb-2">
                   TECH STACK
@@ -83,13 +91,13 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
                 </p>
                 <Button asChild variant="outline" size="sm" className="w-full sm:w-auto text-xs sm:text-sm">
                   <a
-                    href={project.link}
+                    href={externalLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2"
                   >
                     <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
-                    Visit Website
+                    {project.liveLink ? "Visit Website" : "View Repository"}
                   </a>
                 </Button>
               </div>
@@ -101,7 +109,7 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
       {/* Content Section */}
       <section className="container mx-auto px-4 sm:px-6 md:px-8 pb-24 pt-8 sm:py-16 md:py-20 lg:py-24">
         <div className="max-w-4xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
-          
+
           {/* The Problem */}
           <Section title="The Problem" content={project.problem} />
 
@@ -112,36 +120,27 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
           <Section title="Design & Development" content={project.process} />
 
           {/* Process Images */}
-          <img
-            src="/images/project1/process1.png"
-            alt="Design & Development Process"
-            className="w-full rounded-lg shadow-md"
-          />
-          <img
-            src="/images/project1/process2.png"
-            alt="Design & Development Process"
-            className="w-full rounded-lg shadow-md"
-          />
+          {project.processImages?.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`${project.title} — design process, image ${i + 1}`}
+              className="w-full rounded-lg shadow-md"
+            />
+          ))}
 
           {/* Results & Learning */}
           <Section title="Results & Learning" content={project.solution} />
 
           {/* Solution Images */}
-          <img
-            src="/images/project1/solution1.png"
-            alt="Final Solution"
-            className="w-full rounded-lg shadow-md"
-          />
-          <img
-            src="/images/project1/solution2.png"
-            alt="Final Solution"
-            className="w-full rounded-lg shadow-md"
-          />
-          <img
-            src="/images/project1/solution3.png"
-            alt="Final Solution"
-            className="w-full rounded-lg shadow-md"
-          />
+          {project.solutionImages?.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`${project.title} — final solution, image ${i + 1}`}
+              className="w-full rounded-lg shadow-md"
+            />
+          ))}
 
           {/* Key Reflections */}
           {project.reflection && project.reflection.length > 0 && (
@@ -164,9 +163,9 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
           {/* Back Button */}
           <div className="pt-8 sm:pt-10 md:pt-12 border-t border-border">
             <Link href="/projects">
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                size="lg"
+                variant="outline"
                 className="gap-2 bg-transparent text-sm sm:text-base w-full sm:w-auto"
               >
                 <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />

@@ -18,8 +18,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Derek's Portfolio",
-  description: "Derek's Portfolio",
+  title: "Derek Cheng — Frontend Developer",
+  description: "Frontend developer and CS student at SFU. I build web products from Figma to production deployment.",
+  openGraph: {
+    title: "Derek Cheng — Frontend Developer",
+    description: "Frontend developer and CS student at SFU. I build web products from Figma to production deployment.",
+    type: "website",
+  },
 };
 
 interface RootLayoutProps {
