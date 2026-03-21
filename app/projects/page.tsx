@@ -29,7 +29,7 @@ export default function ProjectsPage() {
                 "group overflow-hidden rounded-2xl border border-border/50 bg-card",
                 "hover:border-border hover:shadow-2xl hover:shadow-black/[0.08] dark:hover:shadow-black/40",
                 "transition-all duration-300 ease-out flex flex-col",
-                // First project spans full width — the most complete case study
+                // First project spans full width
                 index === 0 ? "sm:col-span-2" : "",
               ].join(" ")}
             >

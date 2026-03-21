@@ -32,11 +32,11 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
 
   return (
     <main className="min-h-screen w-full bg-background">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="border-b border-border">
         <div className="container mx-auto pt-16 pb-8 sm:px-6 md:px-8 px-4 md:py-16 lg:py-20">
           <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
-            {/* Project Hero Image */}
+            {/* Image */}
             {project.heroImage && (
               <img
                 src={project.heroImage}
@@ -45,7 +45,7 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
               />
             )}
 
-            {/* Project Title and Summary */}
+            {/* Title */}
             <div className="space-y-3 sm:space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-balance leading-tight">
                 {project.title}
@@ -55,7 +55,7 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
               </p>
             </div>
 
-            {/* Context Grid */}
+            {/* Meta */}
             <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 pt-6 sm:pt-8 border-t border-border">
               {project.role && (
                 <div>
@@ -106,20 +106,15 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
         </div>
       </section>
 
-      {/* Content Section */}
+      {/* Content */}
       <section className="container mx-auto px-4 sm:px-6 md:px-8 pb-24 pt-8 sm:py-16 md:py-20 lg:py-24">
         <div className="max-w-4xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
 
-          {/* The Problem */}
           <Section title="The Problem" content={project.problem} />
-
-          {/* Research & Planning */}
           <Section title="Research & Planning" content={project.research} />
-
-          {/* Design & Development */}
           <Section title="Design & Development" content={project.process} />
 
-          {/* Process Images */}
+          {/* Process images */}
           {project.processImages?.map((src, i) => (
             <img
               key={i}
@@ -129,10 +124,9 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
             />
           ))}
 
-          {/* Results & Learning */}
           <Section title="Results & Learning" content={project.solution} />
 
-          {/* Solution Images */}
+          {/* Solution images */}
           {project.solutionImages?.map((src, i) => (
             <img
               key={i}
@@ -142,7 +136,7 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
             />
           ))}
 
-          {/* Key Reflections */}
+          {/* Reflections */}
           {project.reflection && project.reflection.length > 0 && (
             <div className="pt-6 sm:pt-8 border-t border-border">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12">
@@ -160,7 +154,7 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
             </div>
           )}
 
-          {/* Back Button */}
+          {/* Back */}
           <div className="pt-8 sm:pt-10 md:pt-12 border-t border-border">
             <Link href="/projects">
               <Button

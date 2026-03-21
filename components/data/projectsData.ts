@@ -1,5 +1,69 @@
 export const projectsData = [
   {
+    id: "jitjots-website",
+    featured: true,
+    cardImage: "/images/jitsjots/hero.png",
+    title: "JitJots",
+    role: "Frontend Developer",
+    timeline: "2024 – Present",
+    summary:
+      "Live website for JitJots, a science education non-profit bringing hands-on workshops to K-12 students. Built with Next.js and TypeScript as a volunteer contributor. The site is how schools and community centers discover programs, and is actively maintained.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Git"],
+
+    link: "https://github.com/ritchiexia/jitjots",
+    liveLink: "https://jitjots.com/",
+
+    problem: `
+      JitJots needed a web presence that clearly communicated their mission of
+      instilling curiosity and wonder in young scientists. The challenge was
+      presenting their programs, workshops, worksheets, and volunteering,
+      in a way that was approachable for both parents and community organizations.
+    `,
+
+    research: `
+      I reviewed existing science education and non-profit websites to identify
+      common patterns. Key findings: effective sites lead with mission and impact,
+      use age-appropriate imagery, and make it easy for organizations to inquire
+      about booking. This informed the content hierarchy and call-to-action design.
+    `,
+
+    process: `
+      The site was built using Next.js for server-side rendering and fast page
+      loads, with Tailwind CSS handling responsive styling. I collaborated with
+      the team to structure the content across pages for workshops, worksheets,
+      and volunteer opportunities, ensuring the layout scaled cleanly across
+      device sizes.
+    `,
+
+    solution: `
+      The resulting website clearly presents JitJots' programs and mission to
+      prospective partners and families. The responsive design works across
+      desktop and mobile, and the clean layout makes it easy for community
+      centers and schools to understand offerings and get in touch.
+    `,
+
+    reflection: [
+      `
+        Working on a live production site reinforced the importance of
+        accessibility and clear content hierarchy. With a young audience in mind,
+        design decisions needed to balance visual appeal with readability.
+      `,
+
+      `
+        Collaborating on an existing codebase taught me to navigate unfamiliar
+        project structures quickly and contribute meaningfully without disrupting
+        existing patterns.
+      `,
+
+      `
+        Seeing the site go live and serve a real organization was rewarding.
+        Future improvements could include an online booking flow for workshops
+        and downloadable worksheet previews directly on the site.
+      `
+    ],
+  },
+
+  {
     id: "peaked-bouldering-website",
     featured: true,
     heroImage: "/images/peaked-bouldering/hero.png",
@@ -13,11 +77,11 @@ export const projectsData = [
       "/images/peaked-bouldering/solution2.png",
       "/images/peaked-bouldering/solution3.png",
     ],
-    title: "PEAKED Bouldering Website",
+    title: "PEAKED Bouldering",
     role: "Designer & Developer",
     timeline: "Fall 2024",
     summary:
-      "A responsive bouldering gym website with a complete membership purchase flow, built from scratch using vanilla HTML, CSS, and JavaScript.",
+      "Most climbing gym websites bury pricing and use dense tables that slow decisions. I redesigned the membership flow around visual comparison: side-by-side cards, three-step checkout with progressive disclosure, and a layout that holds up across every screen size.",
     techStack: ["HTML", "CSS", "JavaScript", "Git", "Figma"],
 
     link: "https://github.com/derekchengg/PEAKED-Bouldering",
@@ -78,85 +142,21 @@ export const projectsData = [
   },
 
   {
-    id: "jitjots-website",
-    featured: true,
-    cardImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&h=400&fit=crop",
-    title: "JitJots Website",
-    role: "Frontend Developer",
-    timeline: "2024",
-    summary:
-      "A live science education website for JitJots, an organization that brings interactive science workshops and learning experiences to young children. Built with Next.js, TypeScript, and Tailwind CSS.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Git"],
-
-    link: "https://github.com/ritchiexia/jitjots",
-    liveLink: "https://jitjots.com/",
-
-    problem: `
-      JitJots needed a web presence that clearly communicated their mission of
-      instilling curiosity and wonder in young scientists. The challenge was
-      presenting their programs — workshops, worksheets, and volunteering —
-      in a way that was approachable for both parents and community organizations.
-    `,
-
-    research: `
-      I reviewed existing science education and non-profit websites to identify
-      common patterns. Key findings: effective sites lead with mission and impact,
-      use age-appropriate imagery, and make it easy for organizations to inquire
-      about booking. This informed the content hierarchy and call-to-action design.
-    `,
-
-    process: `
-      The site was built using Next.js for server-side rendering and fast page
-      loads, with Tailwind CSS handling responsive styling. I collaborated with
-      the team to structure the content across pages for workshops, worksheets,
-      and volunteer opportunities, ensuring the layout scaled cleanly across
-      device sizes.
-    `,
-
-    solution: `
-      The resulting website clearly presents JitJots' programs and mission to
-      prospective partners and families. The responsive design works across
-      desktop and mobile, and the clean layout makes it easy for community
-      centers and schools to understand offerings and get in touch.
-    `,
-
-    reflection: [
-      `
-        Working on a live production site reinforced the importance of
-        accessibility and clear content hierarchy. With a young audience in mind,
-        design decisions needed to balance visual appeal with readability.
-      `,
-
-      `
-        Collaborating on an existing codebase taught me to navigate unfamiliar
-        project structures quickly and contribute meaningfully without disrupting
-        existing patterns.
-      `,
-
-      `
-        Seeing the site go live and serve a real organization was rewarding.
-        Future improvements could include an online booking flow for workshops
-        and downloadable worksheet previews directly on the site.
-      `
-    ],
-  },
-
-  {
     id: "pneumonia-detection-with-cnn-ml",
-    featured: true,
+    featured: false,
     cardImage: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=800&h=400&fit=crop",
     title: "Pneumonia Detection with CNN & ML",
     role: "ML Engineer",
     timeline: "2024",
     summary:
-      "A deep learning classifier that detects pneumonia from chest X-ray images using transfer learning with EfficientNet B2. The model achieves binary classification (Normal vs. Pneumonia) and includes end-to-end pipelines for training, evaluation, and inference on individual images.",
+      "Binary classifier for pneumonia detection from chest X-ray images using transfer learning with EfficientNet B2. Training was recall-optimized to minimize false negatives, because in a medical context, missing a case costs more than a false alarm.",
     techStack: ["Python", "PyTorch", "EfficientNet B2", "Transfer Learning"],
 
     link: "https://github.com/derekchengg/Pneumonia-Detection-with-CNN-Models",
 
     problem: `
       Pneumonia is one of the leading causes of death worldwide, yet diagnosis
-      relies heavily on radiologists manually reviewing chest X-rays — a process
+      relies heavily on radiologists manually reviewing chest X-rays, a process
       that is time-consuming and prone to human error, especially in under-resourced
       settings. The goal was to build an automated classifier that could assist in
       detecting pneumonia from X-ray images accurately and efficiently.
@@ -178,7 +178,7 @@ export const projectsData = [
       generalization on the smaller Normal class.
 
       Training used a weighted loss function to address class imbalance, and
-      evaluation metrics included accuracy, precision, recall, and F1-score —
+      evaluation metrics included accuracy, precision, recall, and F1-score,
       with recall prioritized to minimize false negatives, since missing a
       pneumonia case is more costly than a false alarm.
     `,

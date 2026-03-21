@@ -14,7 +14,17 @@ export function ModeToggle({ className }: { className?: string }) {
   }, []);
 
   if (!mounted) {
-    return null;
+    return (
+      <button
+        className={cn(
+          buttonVariants({ variant: "ghost", size: "icon" }),
+          "size-12 rounded-full",
+          className
+        )}
+        aria-label="Toggle theme"
+        disabled
+      />
+    );
   }
 
   const currentTheme = theme === 'system' ? systemTheme : theme;
