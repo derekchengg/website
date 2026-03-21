@@ -1,16 +1,18 @@
 "use client";
+import Link from "next/link";
 import {
   Navbar,
   NavBody,
   NavItems,
   MobileNav,
   NavbarLogo,
-  NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 import { useState } from "react";
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 
 export function NavbarNew() {
   const navItems = [
@@ -32,14 +34,48 @@ export function NavbarNew() {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
+          {/* Right */}
+          <div className="relative z-20 flex items-center gap-1">
+            <a
+              href="https://github.com/derekchengg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="GitHub"
+            >
+              <IconBrandGithub className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/derek--cheng/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="LinkedIn"
+            >
+              <IconBrandLinkedin className="w-4 h-4" />
+            </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Resume
+            </a>
+            <ModeToggle />
+          </div>
         </NavBody>
+
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo />
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
+            <div className="flex items-center gap-1">
+              <ModeToggle />
+              <MobileNavToggle
+                isOpen={isMobileMenuOpen}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              />
+            </div>
           </MobileNavHeader>
 
           <MobileNavMenu
@@ -47,15 +83,43 @@ export function NavbarNew() {
             onClose={() => setIsMobileMenuOpen(false)}
           >
             {navItems.map((item, idx) => (
-              <a
+              <Link
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
+                className="text-sm font-medium text-foreground/75 hover:text-foreground transition-colors"
               >
-                <span className="block">{item.name}</span>
-              </a>
+                {item.name}
+              </Link>
             ))}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-foreground/75 hover:text-foreground transition-colors"
+            >
+              Resume
+            </a>
+            <div className="flex items-center gap-4 pt-2">
+              <a
+                href="https://github.com/derekchengg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="GitHub"
+              >
+                <IconBrandGithub className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/derek--cheng/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="LinkedIn"
+              >
+                <IconBrandLinkedin className="w-4 h-4" />
+              </a>
+            </div>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>

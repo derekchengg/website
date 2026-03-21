@@ -1,6 +1,4 @@
-"use client";
-import React from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import { cards } from "@/components/data/languageData";
 import { projectsData } from "@/components/data/projectsData";
@@ -15,105 +13,91 @@ const featuredProjects = projectsData
     tags: p.techStack,
     image: p.cardImage,
     href: `/projects/${p.id}`,
+    timeline: p.timeline,
+    liveLink: (p as { liveLink?: string }).liveLink,
   }));
 
 export default function Home() {
-  const router = useRouter();
-
   return (
     <main className="min-h-screen w-full bg-background">
 
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="min-h-[100svh] flex flex-col max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-20 pb-10">
+      {/* Hero */}
+      <section className="flex flex-col max-w-5xl mx-auto px-6 md:px-12 lg:px-20 pt-20 pb-10">
 
-        {/* Two-col grid: text left, photo right */}
-        <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_400px] gap-10 lg:gap-16 min-h-0 py-6">
+        {/* Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] xl:grid-cols-[1fr_300px] gap-10 lg:gap-16 py-6">
 
-          {/* ── Left: all text ── */}
+          {/* Left */}
           <div className="flex flex-col">
 
-            {/* Top: label + name */}
             <div>
               <p className="text-[10px] font-semibold text-blue-500 uppercase tracking-[0.22em] mb-5">
                 Frontend Developer &amp; Designer
               </p>
-              <h1
-                className="font-black tracking-tighter leading-[0.88] text-foreground"
-                style={{ fontSize: "clamp(58px, 9.5vw, 120px)" }}
-              >
+              <h1 className="font-black tracking-tighter leading-[0.88] text-foreground text-[clamp(58px,9.5vw,120px)]">
                 Derek<br />Cheng
               </h1>
             </div>
 
-            {/* Bottom: tagline + bio + CTAs — pushed to bottom */}
-            <div className="mt-auto pt-10 flex flex-col gap-5">
-              <p
-                className="font-semibold tracking-tight leading-snug text-foreground/70"
-                style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}
-              >
-                I design it.<br />I build it.
+            <div className="mt-16 flex flex-col gap-5">
+              <p className="font-semibold tracking-tight leading-snug text-foreground text-[clamp(20px,2.2vw,28px)]">
+                A frontend developer<br />who thinks like a designer.
               </p>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">
-                Aspiring frontend developer studying Computing Science and
-                Interactive Arts &amp; Technology at SFU. Picking up design
-                alongside code wasn&apos;t an accident. I wanted to understand both
-                sides so I could take something from a Figma frame to a real,
-                working interface without losing anything in between. My most
-                recent work, JitJots, is a live science education site bringing
-                science workshops to kids.
+              <p className="text-sm text-foreground/75 leading-relaxed max-w-lg">
+                Computing Science major, Interactive Arts &amp; Technology minor @ SFU.
+                Currently building the web presence for JitJots, a non-profit
+                that makes science fun for kids through workshops and activity sheets.
               </p>
+
               <div className="flex gap-3 flex-wrap">
-                <button
-                  onClick={() =>
-                    document
-                      .getElementById("work")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
-                  className="flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+                <a
+                  href="#work"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:opacity-90 active:scale-[0.97] transition-all duration-150"
                 >
                   View Work <ArrowDown className="w-3.5 h-3.5" />
-                </button>
+                </a>
                 <a
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 border border-border rounded-full text-sm font-medium hover:bg-muted transition-colors"
+                  className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-full text-sm font-medium hover:bg-muted transition-colors"
                 >
-                  Resume
+                  Resume <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* ── Right: photo fills the column ── */}
-          <div className="hidden lg:block rounded-3xl overflow-hidden ring-1 ring-border/10 min-h-0">
+          {/* Photo */}
+          <div className="hidden lg:block rounded-3xl overflow-hidden ring-1 ring-border/10">
             <Image
               src="/images/icon.jpg"
               alt="Derek Cheng"
               width={400}
               height={600}
+              priority
               className="w-full h-full object-cover object-center"
             />
           </div>
         </div>
 
-        {/* Stack strip — anchored to bottom of section */}
-        <div className="flex items-center gap-5 pt-6 border-t border-border/30 mt-6">
-          <p className="text-[9px] font-semibold text-muted-foreground/40 uppercase tracking-[0.22em] shrink-0">
+        {/* Stack */}
+        <div className="pt-6 border-t border-border/30 mt-12">
+          <p className="text-[9px] font-semibold text-muted-foreground uppercase tracking-[0.22em] mb-3">
             Stack
           </p>
-          <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex flex-wrap gap-3">
             {cards.map((card) => (
               <div
                 key={card.title}
                 title={card.title}
-                className="w-7 h-7 opacity-50 hover:opacity-100 transition-opacity duration-200"
+                className="w-10 h-10"
               >
                 <Image
                   src={card.src}
                   alt={card.title}
-                  width={28}
-                  height={28}
+                  width={40}
+                  height={40}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -122,50 +106,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Selected Work ─────────────────────────────────────── */}
+      {/* Work */}
       <section
         id="work"
-        className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-24"
+        className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 py-24"
       >
-        <div className="flex items-center justify-between mb-2">
-          <p className="text-[9px] font-semibold text-muted-foreground/35 uppercase tracking-[0.22em]">
+        <div className="flex items-center justify-between mb-10">
+          <p className="text-[9px] font-semibold text-muted-foreground uppercase tracking-[0.22em]">
             Selected Work
           </p>
-          <button
-            onClick={() => router.push("/projects")}
-            className="flex items-center gap-1 text-[9px] font-semibold text-muted-foreground/35 uppercase tracking-[0.22em] hover:text-foreground transition-colors"
+          <Link
+            href="/projects"
+            className="flex items-center gap-1 text-[9px] font-semibold text-muted-foreground/60 uppercase tracking-[0.22em] hover:text-foreground transition-colors"
           >
             All Projects <ArrowUpRight className="w-3 h-3" />
-          </button>
+          </Link>
         </div>
 
         <div className="flex flex-col divide-y divide-border/40">
           {featuredProjects.map((project, index) => (
             <article
               key={project.title}
-              onClick={() => router.push(project.href)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  router.push(project.href);
-                }
-              }}
-              tabIndex={0}
-              role="link"
-              aria-label={`View case study: ${project.title}`}
-              className="group py-10 lg:py-14 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+              className="group relative py-10 lg:py-14"
             >
+              <Link
+                href={project.href}
+                className="absolute inset-0 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label={`View ${index === 0 ? "case study" : "project"}: ${project.title}`}
+              />
               <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-16 items-center">
-                <div className="flex flex-col gap-4">
-                  <span className="text-[9px] font-mono text-muted-foreground/20 tracking-widest">
+                <div className="flex flex-col gap-3">
+                  <span className="text-xs font-mono text-muted-foreground/40 tracking-widest">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight leading-tight group-hover:text-blue-500 transition-colors duration-200">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
+
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight leading-tight group-hover:text-blue-500 transition-colors duration-200">
+                      {project.title}
+                    </h3>
+                    {index === 0 && project.liveLink && (
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20">
+                        Live
+                      </span>
+                    )}
+                  </div>
+
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.slice(0, 4).map((tag) => (
                       <Badge
@@ -177,16 +162,23 @@ export default function Home() {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground/35 group-hover:text-blue-500 transition-colors duration-200">
-                    View case study
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  <div className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground group-hover:text-blue-500 transition-colors duration-200 mt-1">
+                    {index === 0 ? "View case study" : "View project"}
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                   </div>
                 </div>
 
-                <div className="overflow-hidden rounded-2xl bg-muted aspect-video">
-                  <img
+                <div className="overflow-hidden rounded-2xl bg-muted aspect-video order-first lg:order-last">
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={800}
+                    height={450}
                     className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
                   />
                 </div>
@@ -195,6 +187,35 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+
+      {/* Footer */}
+      <footer className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 pt-8 pb-16 border-t border-border/30">
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <p className="text-xs text-muted-foreground">
+            © 2026 Derek Cheng
+          </p>
+          <div className="flex items-center gap-6">
+            <a
+              href="https://github.com/derekchengg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/derek--cheng/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </footer>
+
     </main>
   );
 }
