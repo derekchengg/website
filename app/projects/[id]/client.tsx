@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, ExternalLink } from "lucide-react"
+import { ArrowLeft, ArrowUp, ExternalLink } from "lucide-react"
 
 interface Project {
   id: string
@@ -21,6 +21,7 @@ interface Project {
   process: string
   solution: string
   reflection: string[]
+  impact?: string[]
 }
 
 interface ProjectDetailPageClientProps {
@@ -33,16 +34,26 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
   return (
     <main className="min-h-screen w-full bg-background">
       {/* Hero */}
-      <section className="border-b border-border">
-        <div className="container mx-auto pt-16 pb-8 sm:px-6 md:px-8 px-4 md:py-16 lg:py-20">
-          <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+      <section>
+        <div className="container mx-auto pt-16 px-4">
+          <div className="max-w-4xl mx-auto mb-2">
+            <Link href="/projects">
+              <Button variant="ghost" size="default" className="gap-2 -ml-3 text-muted-foreground hover:text-foreground">
+                <ArrowLeft className="w-4 h-4" />
+                All Projects
+              </Button>
+            </Link>
+          </div>
+          <div className="max-w-4xl mx-auto space-y-10 sm:space-y-12">
             {/* Image */}
             {project.heroImage && (
-              <img
-                src={project.heroImage}
-                alt={`${project.title} — hero image`}
-                className="w-full rounded-lg shadow-md py-4 sm:py-6 md:py-8"
-              />
+              <div className="rounded-3xl overflow-hidden shadow-md">
+                <img
+                  src={project.heroImage}
+                  alt={`${project.title} — hero image`}
+                  className="w-full"
+                />
+              </div>
             )}
 
             {/* Title */}
@@ -136,6 +147,22 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
             />
           ))}
 
+          {/* Impact */}
+          {project.impact && project.impact.length > 0 && (
+            <div className="pt-6 sm:pt-8 border-t border-border">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12">
+                Impact
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {project.impact.map((item, index) => (
+                  <div key={index} className="rounded-xl border border-border bg-muted/40 p-5">
+                    <p className="text-sm leading-relaxed text-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Reflections */}
           {project.reflection && project.reflection.length > 0 && (
             <div className="pt-6 sm:pt-8 border-t border-border">
@@ -154,18 +181,17 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
             </div>
           )}
 
-          {/* Back */}
-          <div className="pt-8 sm:pt-10 md:pt-12 border-t border-border">
-            <Link href="/projects">
-              <Button
-                size="lg"
-                variant="outline"
-                className="gap-2 bg-transparent text-sm sm:text-base w-full sm:w-auto"
-              >
-                <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
-                View All Projects
-              </Button>
-            </Link>
+          {/* Scroll to top */}
+          <div className="pt-8 sm:pt-10 md:pt-12 border-t border-border flex justify-end">
+            <Button
+              size="sm"
+              variant="outline"
+              className="gap-2 bg-transparent text-sm"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              <ArrowUp className="w-3.5 h-3.5" />
+              Back to top
+            </Button>
           </div>
         </div>
       </section>
