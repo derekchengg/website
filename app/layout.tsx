@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavbarNew } from "@/components/navbar";
-import { BottomDock } from "@/components/bottom-navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,8 +17,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Derek's Portfolio",
-  description: "Derek's Portfolio",
+  title: "Derek Cheng",
+  description: "Frontend developer and CS student at SFU. I build web products from Figma to production deployment.",
+  openGraph: {
+    title: "Derek Cheng",
+    description: "Frontend developer and CS student at SFU. I build web products from Figma to production deployment.",
+    type: "website",
+  },
 };
 
 interface RootLayoutProps {
@@ -48,10 +52,7 @@ export default function RootLayout({
           {/* Main Content */}
           {children}
           
-          {/* Bottom Dock */}
-          <div className="fixed bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-            <BottomDock />
-          </div>
+
         </ThemeProvider>
       </body>
     </html>

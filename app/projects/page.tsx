@@ -1,75 +1,99 @@
 "use client"
 import Link from "next/link"
 import { projectsData } from "@/components/data/projectsData"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen w-full pt-16 sm:pt-20 pb-12 sm:pb-16">
-      <section className="container mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8">
-        <div className="text-center mb-8 sm:mb-10 md:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
-            Projects
+    <main className="min-h-screen w-full bg-background">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 md:px-8 pt-24 pb-32">
+
+        {/* Header */}
+        <div className="mb-12">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+            All Work
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            Welcome to my projects portfolio!
+          <p className="text-sm text-muted-foreground">
+            Frontend, design, and machine learning — {projectsData.length} projects.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-          {projectsData.map((project) => (
-            <Link key={project.id} href={`/projects/${project.id}`}>
-              <Card className="h-full hover:shadow-lg hover:border-primary transition-all duration-300 cursor-pointer hover:-translate-y-1">
-                <CardHeader className="p-4 sm:p-6">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="flex-1">
-                      {/* Project Hero Image */}
-                      <img
-                        src="/images/project1/hero.png"
-                        alt="Project preview"
-                        className="w-full rounded-lg shadow-md py-4 sm:py-6 md:py-8"
-                      />
-                      <CardTitle className="text-base sm:text-lg md:text-xl line-clamp-2">
-                        {project.title}
-                      </CardTitle>
-                      <CardDescription className="mt-1.5 sm:mt-2 text-xs sm:text-sm">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {projectsData.map((project, index) => (
+            <Link
+              key={project.id}
+              href={`/projects/${project.id}`}
+              className={[
+                "group overflow-hidden rounded-2xl border border-border/50 bg-card",
+                "hover:border-border hover:shadow-2xl hover:shadow-black/[0.08] dark:hover:shadow-black/40",
+                "transition-all duration-300 ease-out flex flex-col",
+                // First project spans full width
+                index === 0 ? "sm:col-span-2" : "",
+              ].join(" ")}
+            >
+              {/* Image */}
+              <div
+                className={[
+                  "overflow-hidden bg-muted flex-shrink-0",
+                  index === 0 ? "h-52 sm:h-72" : "h-48 sm:h-56",
+                ].join(" ")}
+              >
+                <img
+                  src={project.cardImage}
+                  alt={`${project.title} preview`}
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="p-5 sm:p-6 flex flex-col gap-3 flex-1">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3
+                      className={[
+                        "font-semibold leading-snug",
+                        index === 0 ? "text-lg" : "text-base",
+                      ].join(" ")}
+                    >
+                      {project.title}
+                    </h3>
+                    {project.role && (
+                      <p className="text-xs text-muted-foreground mt-0.5">
                         {project.role}
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="space-y-3 sm:space-y-4 p-4 sm:p-6 pt-0 sm:pt-0">
-                  <p className="text-xs sm:text-sm text-foreground line-clamp-3 leading-relaxed">
-                    {project.summary}
-                  </p>
-
-                  {/* Tech badges */}
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {project.techStack.slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-[10px] sm:text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.techStack.length > 3 && (
-                      <Badge variant="outline" className="text-[10px] sm:text-xs">
-                        +{project.techStack.length - 3}
-                      </Badge>
+                      </p>
                     )}
                   </div>
+                  <ArrowUpRight className="w-4 h-4 flex-shrink-0 mt-0.5 text-muted-foreground/30 group-hover:text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+                </div>
 
-                  <div className="flex items-center gap-2 text-primary font-medium text-xs sm:text-sm pt-1 sm:pt-2">
-                    Read Case Study
-                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </div>
-                </CardContent>
-              </Card>
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 flex-1">
+                  {project.summary}
+                </p>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {project.techStack.slice(0, 4).map((tech) => (
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="text-[10px] px-2 py-0.5"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                  {project.techStack.length > 4 && (
+                    <Badge variant="outline" className="text-[10px] px-2 py-0.5">
+                      +{project.techStack.length - 4}
+                    </Badge>
+                  )}
+                </div>
+              </div>
             </Link>
           ))}
         </div>
-      </section>
+
+      </div>
     </main>
   )
 }

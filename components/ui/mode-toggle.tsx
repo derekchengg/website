@@ -14,7 +14,16 @@ export function ModeToggle({ className }: { className?: string }) {
   }, []);
 
   if (!mounted) {
-    return null;
+    return (
+      <button
+        className={cn(
+          "p-2 text-muted-foreground rounded-md",
+          className
+        )}
+        aria-label="Toggle theme"
+        disabled
+      />
+    );
   }
 
   const currentTheme = theme === 'system' ? systemTheme : theme;
@@ -23,8 +32,7 @@ export function ModeToggle({ className }: { className?: string }) {
     <button
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
       className={cn(
-        buttonVariants({ variant: "ghost", size: "icon" }),
-        "size-12 rounded-full",
+        "p-2 text-muted-foreground hover:text-foreground transition-colors",
         className
       )}
       type="button"

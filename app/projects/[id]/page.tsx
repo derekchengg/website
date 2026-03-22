@@ -6,6 +6,7 @@ interface ProjectPageProps {
   params: Promise<{ id: string }>
 }
 
+// https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export function generateStaticParams() {
   return projectsData.map((project) => ({
     id: project.id,
