@@ -17,8 +17,7 @@ export function ModeToggle({ className }: { className?: string }) {
     return (
       <button
         className={cn(
-          buttonVariants({ variant: "ghost", size: "icon" }),
-          "size-12 rounded-full",
+          "p-2 text-muted-foreground rounded-md",
           className
         )}
         aria-label="Toggle theme"
@@ -33,8 +32,7 @@ export function ModeToggle({ className }: { className?: string }) {
     <button
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
       className={cn(
-        buttonVariants({ variant: "ghost", size: "icon" }),
-        "size-12 rounded-full",
+        "p-2 text-muted-foreground hover:text-foreground transition-colors",
         className
       )}
       type="button"

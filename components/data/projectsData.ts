@@ -2,10 +2,11 @@ export const projectsData = [
   {
     id: "jitjots-website",
     featured: true,
+    heroImage: "/images/jitsjots/hero.png",
     cardImage: "/images/jitsjots/hero.png",
     title: "JitJots",
-    role: "Frontend Developer",
-    timeline: "2024 – Present",
+    role: "Frontend Developer & Designer",
+    timeline: "2025 – Present",
     summary:
       "Live website for JitJots, a science education non-profit bringing hands-on workshops to K-12 students. Built with Next.js and TypeScript as a volunteer contributor. The site is how schools and community centers discover programs, and is actively maintained.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Git"],
@@ -42,24 +43,11 @@ export const projectsData = [
       centers and schools to understand offerings and get in touch.
     `,
 
-    reflection: [
-      `
-        Working on a live production site reinforced the importance of
-        accessibility and clear content hierarchy. With a young audience in mind,
-        design decisions needed to balance visual appeal with readability.
-      `,
-
-      `
-        Collaborating on an existing codebase taught me to navigate unfamiliar
-        project structures quickly and contribute meaningfully without disrupting
-        existing patterns.
-      `,
-
-      `
-        Seeing the site go live and serve a real organization was rewarding.
-        Future improvements could include an online booking flow for workshops
-        and downloadable worksheet previews directly on the site.
-      `
+    reflection: [],
+    impact: [
+      "Weekly workshops reaching hundreds of attendees, from ages 5 to high school",
+      "Partnered with several community centers across the Lower Mainland",
+      "The website is the primary way schools and organizations discover and book programs",
     ],
   },
 
