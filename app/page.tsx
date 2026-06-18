@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { cards } from "@/components/data/languageData";
 import { projectsData } from "@/components/data/projectsData";
 import { Badge } from "@/components/ui/badge";
-import { ArrowUpRight, ArrowDown } from "lucide-react";
+import { SkillsList } from "@/components/skills-list";
+import { ArrowUpRight, ArrowRight, ArrowDown } from "lucide-react";
 
 const featuredProjects = projectsData
   .filter((p) => p.featured)
@@ -56,20 +56,18 @@ export default function Home() {
                 >
                   View Work <ArrowDown className="w-3.5 h-3.5" />
                 </a>
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact"
                   className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-full text-sm font-medium hover:bg-muted transition-colors"
                 >
-                  Resume <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
+                  Get in Touch <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
           </div>
 
           {/* Photo */}
-          <div className="hidden lg:block rounded-3xl overflow-hidden ring-1 ring-border/10">
+          <div className="order-first lg:order-last w-32 h-32 sm:w-40 sm:h-40 mx-auto lg:mx-0 lg:w-full lg:h-full rounded-full lg:rounded-3xl overflow-hidden ring-1 ring-border/10">
             <Image
               src="/images/icon.jpg"
               alt="Derek Cheng"
@@ -83,26 +81,10 @@ export default function Home() {
 
         {/* Stack */}
         <div className="pt-6 border-t border-border/30 mt-12">
-          <p className="text-[9px] font-semibold text-muted-foreground uppercase tracking-[0.22em] mb-3">
-            Stack
+          <p className="text-[9px] font-semibold text-muted-foreground uppercase tracking-[0.22em] mb-4">
+            Skills
           </p>
-          <div className="flex flex-wrap gap-3">
-            {cards.map((card) => (
-              <div
-                key={card.title}
-                title={card.title}
-                className="w-10 h-10"
-              >
-                <Image
-                  src={card.src}
-                  alt={card.title}
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            ))}
-          </div>
+          <SkillsList />
         </div>
       </section>
 
@@ -188,33 +170,32 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* Footer */}
-      <footer className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 pt-8 pb-16 border-t border-border/30">
-        <div className="flex items-center justify-between flex-wrap gap-4">
-          <p className="text-xs text-muted-foreground">
-            © 2026 Derek Cheng
+      {/* CTA */}
+      <section className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 pb-24">
+        <div className="rounded-3xl border border-border/50 bg-muted/30 px-8 py-14 sm:px-14 sm:py-16 text-center flex flex-col items-center gap-5">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            Want to know more?
+          </h2>
+          <p className="text-sm text-muted-foreground max-w-md">
+            I&apos;m always happy to talk frontend, design, or JitJots&apos;
+            mission of getting more kids excited about science.
           </p>
-          <div className="flex items-center gap-6">
-            <a
-              href="https://github.com/derekchengg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          <div className="flex gap-3 flex-wrap justify-center">
+            <Link
+              href="/about"
+              className="flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:opacity-90 active:scale-[0.97] transition-all duration-150"
             >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/derek--cheng/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              About Me
+            </Link>
+            <Link
+              href="/contact"
+              className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-full text-sm font-medium hover:bg-muted transition-colors"
             >
-              LinkedIn
-            </a>
+              Get in Touch <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
-      </footer>
+      </section>
 
     </main>
   );
