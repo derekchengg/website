@@ -23,10 +23,13 @@ export const projectsData = [
 
     research: `
       I reviewed existing science education and non-profit websites to identify
-      common patterns. Key findings: effective sites lead with mission and impact,
-      use age-appropriate imagery, and make it easy for organizations to inquire
-      about booking. This informed the content hierarchy and call-to-action design.
+      common patterns, which informed the content hierarchy and call-to-action design.
     `,
+    researchFindings: [
+      "Effective sites lead with mission and impact, not just a list of services",
+      "Age-appropriate imagery builds trust with parents and educators",
+      "Making it easy for organizations to inquire about booking reduces drop-off",
+    ],
 
     process: `
       The site was built using Next.js for server-side rendering and fast page
@@ -81,23 +84,27 @@ export const projectsData = [
     `,
 
     research: `
-      So I analyzed competitor sites (Hive Climbing, Progression Bouldering,
-      Approach Climbing). Key findings: most sites buried pricing 2-3 clicks
-      deep, used dense tables requiring scrolling, and had lengthy checkout
-      flows. These friction points informed my focus on visual comparison and
-      streamlined purchasing.
+      I analyzed competitor sites — Hive Climbing, Progression Bouldering, and
+      Approach Climbing — to find the friction points that informed my focus
+      on visual comparison and streamlined purchasing.
     `,
+    researchFindings: [
+      "Pricing was buried 2-3 clicks deep on most competitor sites",
+      "Dense comparison tables required excessive scrolling",
+      "Checkout flows were long and lost users partway through",
+    ],
 
     process: `
       I wireframed a simplified user journey in Figma, prioritizing immediate
-      pricing visibility. The reason I designed a three-step flow is to reduce
-      cognitive load: (1) membership selection with side-by-side cards, (2) user
-      details with progressive disclosure, (3) order confirmation with transparent
-      pricing.
-
-      For the cards, I followed the standard typography for pricing and visual weight.
-      This helps users make quick decisions.
+      pricing visibility with a three-step flow designed to reduce cognitive
+      load. For the membership cards, I followed standard pricing typography
+      and visual weight conventions to help users make quick decisions.
     `,
+    processSteps: [
+      "Membership selection with side-by-side comparison cards",
+      "User details collected through progressive disclosure",
+      "Order confirmation with transparent, itemized pricing",
+    ],
 
     solution: `
       The results show that this approach directly addressed competitor pain
@@ -151,25 +158,26 @@ export const projectsData = [
     `,
 
     research: `
-      I reviewed existing approaches to medical image classification, focusing on
-      transfer learning techniques. EfficientNet B2 stood out for its strong
-      performance-to-parameter ratio compared to heavier architectures like ResNet
-      or VGG. I also studied the Kaggle chest X-ray dataset structure to understand
-      class imbalance issues between Normal and Pneumonia samples, which directly
-      shaped the training strategy.
+      I reviewed existing approaches to medical image classification, focusing
+      on transfer learning techniques and the dataset structure that would
+      shape the training strategy.
     `,
+    researchFindings: [
+      "EfficientNet B2 had a stronger performance-to-parameter ratio than heavier architectures like ResNet or VGG",
+      "The Kaggle chest X-ray dataset showed significant class imbalance between Normal and Pneumonia samples",
+    ],
 
     process: `
-      The pipeline was built end-to-end in Python using PyTorch. I fine-tuned a
-      pretrained EfficientNet B2 model on the chest X-ray dataset, applying data
-      augmentation (random flips, rotations, contrast adjustments) to improve
-      generalization on the smaller Normal class.
-
-      Training used a weighted loss function to address class imbalance, and
-      evaluation metrics included accuracy, precision, recall, and F1-score,
-      with recall prioritized to minimize false negatives, since missing a
-      pneumonia case is more costly than a false alarm.
+      The pipeline was built end-to-end in Python using PyTorch, fine-tuning a
+      pretrained EfficientNet B2 model on the chest X-ray dataset with recall
+      prioritized to minimize false negatives, since missing a pneumonia case
+      is more costly than a false alarm.
     `,
+    processSteps: [
+      "Data augmentation — random flips, rotations, and contrast adjustments to improve generalization on the smaller Normal class",
+      "A weighted loss function to address class imbalance between the two classes",
+      "Evaluation across accuracy, precision, recall, and F1-score, with recall as the priority metric",
+    ],
 
     solution: `
       The fine-tuned model achieved strong binary classification performance on

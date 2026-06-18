@@ -21,8 +21,16 @@ export function NavbarNew() {
       link: "/",
     },
     {
+      name: "About",
+      link: "/about",
+    },
+    {
       name: "Projects",
       link: "/projects",
+    },
+    {
+      name: "Contact",
+      link: "/contact",
     },
   ];
 
@@ -54,14 +62,6 @@ export function NavbarNew() {
             >
               <IconBrandLinkedin className="w-4 h-4" />
             </a>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Resume
-            </a>
             <ModeToggle />
           </div>
         </NavBody>
@@ -92,14 +92,6 @@ export function NavbarNew() {
                 {item.name}
               </Link>
             ))}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-foreground/75 hover:text-foreground transition-colors"
-            >
-              Resume
-            </a>
             <div className="flex items-center gap-4 pt-2">
               <a
                 href="https://github.com/derekchengg"

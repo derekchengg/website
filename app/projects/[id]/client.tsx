@@ -18,7 +18,9 @@ interface Project {
   solutionImages?: string[]
   problem: string
   research: string
+  researchFindings?: string[]
   process: string
+  processSteps?: string[]
   solution: string
   reflection: string[]
   impact?: string[]
@@ -122,8 +124,16 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
         <div className="max-w-4xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
 
           <Section title="The Problem" content={project.problem} />
-          <Section title="Research & Planning" content={project.research} />
-          <Section title="Design & Development" content={project.process} />
+          <Section
+            title="Research & Planning"
+            content={project.research}
+            bullets={project.researchFindings}
+          />
+          <Section
+            title="Design & Development"
+            content={project.process}
+            bullets={project.processSteps}
+          />
 
           {/* Process images */}
           {project.processImages?.map((src, i) => (
@@ -199,7 +209,15 @@ export default function ProjectDetailPageClient({ project }: ProjectDetailPageCl
   )
 }
 
-function Section({ title, content }: { title: string; content: string }) {
+function Section({
+  title,
+  content,
+  bullets,
+}: {
+  title: string
+  content: string
+  bullets?: string[]
+}) {
   return (
     <div className="space-y-4 sm:space-y-5 md:space-y-6">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">{title}</h2>
@@ -210,6 +228,22 @@ function Section({ title, content }: { title: string; content: string }) {
           </p>
         ))}
       </div>
+      {bullets && bullets.length > 0 && (
+        <ul className="space-y-2.5 sm:space-y-3">
+          {bullets.map((item, index) => (
+            <li
+              key={index}
+              className="flex gap-3 text-sm sm:text-base md:text-lg leading-relaxed text-foreground"
+            >
+              <span
+                aria-hidden="true"
+                className="mt-2.5 sm:mt-3 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0"
+              />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
